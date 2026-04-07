@@ -1,4 +1,3 @@
-using Study.LabWork1.Features.Task1;
 using Study.LabWork1.Features.Task2;
 using Study.LabWork1.Shared.Abstractions;
 
@@ -12,20 +11,7 @@ public class RunService : IRunService
     /// <summary>
     /// Задание 1
     /// </summary>
-    public void RunTask1()
-    {
-        MyVector a = new MyVector(1, 2);
-        MyVector b = new MyVector(3, 4);
-
-        Console.WriteLine($"a: {a}, b: {b}\n\n");
-
-        Console.WriteLine($"Sum: {a+b}");
-        Console.WriteLine($"Minus: {a - b}");
-        Console.WriteLine($"Multiply: {a * b}");
-        Console.WriteLine($"Is equal: {a == b}");
-        Console.WriteLine($"Is not equal: {a != b}");
-        Console.WriteLine($"Length: {+a}");
-    }
+    public void RunTask1() => throw new NotImplementedException();
 
     /// <summary>
     /// Задание 2
