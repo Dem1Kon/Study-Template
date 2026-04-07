@@ -39,5 +39,5 @@ public class MyVector(float x,  float y)
         return (float)Math.Sqrt(Math.Pow(v1.DirectionX, 2) + Math.Pow(v1.DirectionY, 2));
     }
 
-    public override string ToString() => $"({DirectionX},{DirectionY})";
+    public override string ToString() => $"({DirectionX}, {DirectionY})";
 }
