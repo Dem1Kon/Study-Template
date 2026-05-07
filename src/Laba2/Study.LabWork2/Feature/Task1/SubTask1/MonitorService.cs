@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using Microsoft.VisualBasic;
 using Study.LabWork2.Abstractions.Feature.Task1.SubTask1;
 using Study.LabWork2.Abstractions.Feature.Task1.SubTask1.DtoModels;
 
@@ -14,11 +13,8 @@ public sealed class MonitorService : IPrimeCounter
     {
         var total = end - start + 1;
         var perThread = total / threadCount;
-        int remainder = total % threadCount;
-
         var locker = new object();
         var primeCounter = 0;
-
         List<Thread> threads = new();
 
         var sw = Stopwatch.StartNew();
@@ -30,10 +26,7 @@ public sealed class MonitorService : IPrimeCounter
 
             var thread = new Thread(() =>
             {
-                var threadStart = start + threadId * perThread;
-                var threadEnd = start + perThread + (threadId < remainder ? 1 : 0);
-
-                for (int digit = threadStart; digit <= threadEnd; digit++)
+                for (int digit = start + perThread * threadId; digit < perThread * (threadId + 1) + start; digit++)
                 {
                     Console.WriteLine($"Thread: {threadId} - checks {digit}");
                     if (IsPrime(digit))
