@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Study.LabWork2.Abstractions.Feature.Task1.SubTask1.DtoModels;
 using Study.LabWork2.Feature.Task1.SubTask1.DtoModels;
 
 namespace Study.LabWork2.Feature.Task1.SubTask1;
@@ -27,7 +28,7 @@ public sealed class MonitorService : IPrimeCounter
             {
                 for (int digit = start + perThread * threadId; digit < perThread * (threadId + 1) + start; digit++)
                 {
-                    Console.WriteLine($"Thread: {threadId} - checks{digit}");
+                    Console.WriteLine($"Thread: {threadId} - checks {digit}");
                     if (IsPrime(digit))
                     {
                         lock (locker)
@@ -52,7 +53,7 @@ public sealed class MonitorService : IPrimeCounter
         sw.Stop();
 
 
-        return new PrimeCountResultDto(primeCounter, sw.ElapsedMilliseconds);
+        return new PrimeCountResultDto{};
     }
 
     public bool IsPrime(int digit)

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Study.LabWork2.Abstractions.Feature.Task1.SubTask1.DtoModels;
 using Study.LabWork2.Feature.Task1.SubTask1;
 using Study.LabWork2.Feature.Task1.SubTask1.DtoModels;
 
@@ -29,7 +30,7 @@ public sealed class MutexService : IPrimeCounter
             {
                 for (int digit = start + perThread * threadId; digit <= perThread * (threadId + 1) + start; digit++)
                 {
-                    Console.WriteLine($"Thread: {threadId} - checks{digit}");
+                    Console.WriteLine($"Thread: {threadId} - checks {digit}");
                     if (IsPrime(digit))
                     {
                         mu.WaitOne();
@@ -59,7 +60,7 @@ public sealed class MutexService : IPrimeCounter
         sw.Stop();
 
 
-        return new PrimeCountResultDto(primeCounter, sw.ElapsedMilliseconds);
+        return new PrimeCountResultDto{};
     }
 
     public bool IsPrime(int digit)
