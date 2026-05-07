@@ -60,7 +60,7 @@ public sealed class MutexService : IPrimeCounter
         sw.Stop();
 
 
-        return new PrimeCountResultDto{};
+        return new PrimeCountResultDto { PrimeCount = primeCounter, ExecutionTime = TimeSpan.FromMilliseconds(sw.ElapsedMilliseconds) };
     }
 
     public bool IsPrime(int digit)
