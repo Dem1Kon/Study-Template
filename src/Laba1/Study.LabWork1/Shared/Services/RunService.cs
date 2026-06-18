@@ -1,3 +1,4 @@
+using Study.LabWork1.Features.Task2;
 using Study.LabWork1.Shared.Abstractions;
 
 namespace Study.LabWork1.Shared.Services;
@@ -15,7 +16,18 @@ public class RunService : IRunService
     /// <summary>
     /// Задание 2
     /// </summary>
-    public void RunTask2() => throw new NotImplementedException();
+    public void RunTask2()
+    {
+        ConcreteMediator mediator = new();
+        ConcreteUser programmer = new(mediator, "Programmer");
+        ConcreteUser admin = new(mediator, "Admin");
+
+        mediator.user1 = programmer;
+        mediator.user2 = admin;
+
+        programmer.Send("Hello from programmer");
+        admin.Send("Hello from admin");
+    }
 
     /// <summary>
     /// Задание 3
